@@ -30,21 +30,11 @@ body {
     display: flex;
 }
 
-.heading_one{
-  position: absolute;
-  top: 546px;
-  left: 241px;
-  font-family: Nunito;
-  font-size: 50px;
-  color: white;
-  font-style: bold;
-}
-
 .sideimage{
-  border-width: 1px;
+  /* border-width: 1px; */
   flex: 1;
-  border-style: solid;
-  border-color: rgb(192,192, 192);
+  /* border-style: solid; */
+  /* border-color: rgb(192,192, 192); */
   position: relative;
 }
 
@@ -53,21 +43,20 @@ body {
   margin-left: 10px;
   margin-top: 5px;
   border-radius: 43px;
-  border-width: 1px;
-  border-style: solid;
-  border-color: blue;
 }
 
 .logininfo{
       flex: 1;
-      background-color: brown;
+      flex-direction: column;
+      /* background-color: brown; */
 }
 
 @media(max-width : 750px) {
     
-      body{
-       overflow: auto;
-    }
+       body{
+        overflow: auto;
+        /* height: auto; */
+      }
 
   .bg_class{
        flex-direction: column;
@@ -109,5 +98,107 @@ body {
   font-weight: 700;
 }
 
+.logindetailcontaier{
+  /* border-color: white;
+  border-style: solid;
+  border-width: 1px; */
+  width: 348px;
+  height: 305px;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  margin-left: 226px;
+  font-family: "Nunito";
+  color: white;
+}
 
+.login_title{
+  margin-left: 310px;
+  font-size: 36px;
+  font-family: "Nunito";
+  font-style: bold;
+  font-weight: 800;
+  margin-top: 140px;
+  color: black;
+}
 
+.username, .password, .cnt_google{
+   width: 343px;
+   height: 48px; 
+   padding-left: 10px;
+   font-size: 16px;
+   border-width: 1px;
+   border-style: solid;
+   border-color: #D2D2D2;
+   border-radius: 10px;
+   color: black;
+   box-shadow: inset 1px 2px 3px rgba(0,0,0,0.05);
+   margin-bottom: 20px;
+   gap: 10px;
+}
+
+.login_btn{
+   width: 357px;
+   height: 48px;
+   border-width: 1px;
+   border-style: solid;
+   font-size: 16px;
+   border-color: #D2D2D2;
+   border-radius: 10px;
+  background-color: #154617;
+  color: #B0EB70;
+  border: none;
+  margin-bottom: 22px;
+}
+
+.google_icon{
+   width: 20px;
+   height: 20px;
+  display: inline-flex;
+  margin-left: 50px;
+}
+
+.cnt_google{
+  display: inline-flex;
+  color: black;
+  font-style: bold; 
+  font-weight: 600;
+  font-size: 16px;
+  align-items: center;
+}
+
+.username::placeholder, .password::placeholder{
+    font-size: 16px;
+    padding-left: 20px;
+}
+
+.or_info{
+   flex: 1;
+   font-family: "Nunito";
+   align-items: center;
+   align-content: center;
+   font-size: 16px;
+   color: black;
+   margin-top: -5px;
+   text-align: center;
+   margin-bottom: 20px;
+}
+
+.sigup_div{
+  margin-top: 350px;
+  margin-left: 302px;
+  flex-direction: column;
+  font-family: 'Nunito';
+  font-weight: 600;
+  font-style: bold;
+  font-size: 14px;
+}
+
+.signup{
+  color: #F99DAB;
+}
+
+.span_example,.signup{
+  text-decoration: underline solid;
+  cursor: pointer;
+}
