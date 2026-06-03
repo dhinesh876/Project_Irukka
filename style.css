@@ -47,8 +47,76 @@ body {
 
 .logininfo{
       flex: 1;
-      flex-direction: column;
       /* background-color: brown; */
+      flex-direction: column;
+}
+
+.signupinfo{
+    flex: 1;
+    flex-direction: column;
+      font-family: "Nunito";
+    /* background-color: brown; */
+}
+
+.sigupuser{
+ width: 343px;
+ height: 48px; 
+ border: 1px solid #ccc;
+ border-radius: 8px;
+ display: flex;
+ padding: 0 15px;
+ /* align-items:center; */
+ gap: 10px;
+  margin-bottom: 15px;
+}
+
+.sigupemail{
+   width: 343px;
+ height: 48px; 
+ border: 1px solid #ccc;
+ border-radius: 8px;
+ display: flex;
+ padding: 0 15px;
+ /* align-items:center; */
+ gap: 10px;
+  margin-bottom: 15px;
+}
+
+.sigupuser i, .sigupemail i{
+  color: black;
+  align-content: center;
+  font-size: 22px;
+}
+
+.sigupuser input, .sigupemail input{
+   flex: 1;
+   border:none;
+   outline: none;
+   margin-left: 15px;
+   font-size: 18px;
+}
+
+.emailid{
+  color: black;
+  font-family: "Nunito";
+  font-weight: 800;
+  font-style: bold;
+  font-size: 14px;
+  margin-bottom: 5px;
+  margin-left: 5px;
+}
+
+.country{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.country select{
+  border: none;
+  outline: none;
+  font-size: 16px;
+  background:transparent;
 }
 
 @media(max-width : 750px) {
@@ -112,6 +180,20 @@ body {
   color: white;
 }
 
+.logindetailcontaier_signup{
+  /* border-color: white; */
+  /* border-style: solid; */
+  /* border-width: 1px; */
+  width: 374px;
+  height: 460px;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  margin-left: 226px;
+  font-family: "Nunito";
+  color: white;
+}
+
 .login_title{
   margin-left: 310px;
   font-size: 36px;
@@ -119,6 +201,24 @@ body {
   font-style: bold;
   font-weight: 800;
   margin-top: 140px;
+  color: black;
+}
+
+.forget_pass{
+  font-family: "Nunito";
+  font-weight: 600;
+  font-style: 600px;
+   align-content: center;
+   margin-left: 60px;
+   color: #000;
+}
+.signup_title{
+  margin-left: 290px;
+  font-size: 25px;
+  font-family: "Nunito";
+  font-style: bold;
+  font-weight: 800;
+  margin-top: 90px;
   color: black;
 }
 
@@ -149,6 +249,22 @@ body {
   color: #B0EB70;
   border: none;
   margin-bottom: 22px;
+}
+
+.signup_btn{
+     width: 374px;
+   height: 48px;
+   border-width: 1px;
+   border-style: solid;
+   font-size: 16px;
+   border-color: #D2D2D2;
+   border-radius: 10px;
+  background-color: #154617;
+  color: #B0EB70;
+  border: none;
+  font-weight: 700;
+   font-family: "Nunito";
+  margin-top: 12px;
 }
 
 .google_icon{
@@ -200,5 +316,11 @@ body {
 
 .span_example,.signup{
   text-decoration: underline solid;
+  cursor: pointer;
+}
+
+.span_sigin{
+  text-decoration: underline solid;
+  color: #B0EB70;
   cursor: pointer;
 }
