@@ -1,0 +1,128 @@
+body {
+  overflow: hidden;
+  font-family: Arial;
+  position: relative;
+}
+
+.bg_class{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.upimage{
+  border-width: 1px;
+  flex: 1;
+  border-style: solid;
+  border-color: rgb(192,192, 192);
+  position: relative;
+}
+
+.shoplist{
+      flex: 1;
+      /* background-color: brown; */
+        border-style: solid;
+  border-color: red;
+  border-width: 4px;
+  position: relative;
+  margin-top: -4px;
+}
+
+.upimg{
+  Width : 1520px;
+  Height : 399px;
+  object-fit:cover;
+ }
+
+ .headtitle, .btntitle, .mainsenten, .srcarea, .srcarea1{
+   font-family: "Nunito";
+   position: absolute;
+  }
+
+  .srcarea, .srcarea1{
+    width: 200px;
+    height: 48px;
+    top: 236px;
+    left: 450px;
+    border-radius: 10px;
+    border: 1px;
+    background-color: #F5F5F5;
+    border-color: #D2D2D2;
+    padding: 10px 16px 10px 16px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+  }
+
+  .srcarea1{
+    width: 344px;
+    height: 48px;
+    top: 236px;
+    left: 717px;
+  }
+
+  .srcarea i, .srcarea1 i{
+    color: #777;
+    font-size: 20px;
+  }
+
+  .srcarea input{
+    border: none;
+    outline: none;
+    margin-left: 10px;
+    height: 25px;
+    width: 178px;
+    background-color: #F5F5F5;
+    font-size: 16px;
+  }
+
+  .srcarea1 input{
+    border: none;
+    outline: none;
+    margin-left: 10px;
+    height: 25px;
+    width: 500px;
+    background-color: #F5F5F5;
+    font-size: 16px;
+  }
+
+  .srcarea1 ::placeholder, .srcarea1 i, .srcarea i, .srcarea input{
+    opacity: 0.60;
+  }
+
+  .mainsenten{
+    width: 692px;
+    height: 79px;
+    top: 80px;
+    left: 445px;
+    color: black;
+    font-family: "Nunito";
+    font-weight: 700;
+    font-style: bold;
+    font-size: 25px;
+  }
+
+ .headtitle{
+  color: white;
+   top: 19px;
+   left: 34px;
+   width: 86px;
+   height: 40px;
+   font-size: 30px;
+   font-weight: 700;
+ }
+
+ .btntitle{
+   width: 86px;
+   height: 48px;
+   top: 20px;
+   left: 1370px;
+   border-radius: 10px;
+   border: none;
+   padding: 10px;
+   gap: 10px;
+   background-color: #154617;
+   color: #B0EB70;
+   font-size: 16px;
+   font-weight: 600;
+ }
