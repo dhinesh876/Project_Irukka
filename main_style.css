@@ -181,7 +181,14 @@ body {
  .shop_grid{
   display: grid;
   grid-template-columns: repeat(5 ,1fr);
-  row-gap: 30px;
+ }
+
+ @media(max-width : 750px) {
+       .shop_grid{
+           display: grid;
+           grid-template-columns: repeat(3 ,1fr);
+           row-gap: 30px;
+      }
  }
 
  .shop_container{
@@ -250,8 +257,8 @@ body {
   position: relative;
   margin-top: 144px;
   text-align: center;
-  margin-left: -185px;
-  font-family: "Roboto";
+  margin-left: -200px;
+  font-family: "Nunito";
   font-weight: 400;
   font-size: 14px;
 }
@@ -273,7 +280,7 @@ body {
   width: 234px;
   height: 50px;
   margin-top: 390px;
-  margin-left: 653px;
+  margin-left: 645px;
   border-radius: 30px;
   padding: 5px 26px 5px 26px;
   gap: 10px;
@@ -285,11 +292,27 @@ body {
 }
 
 .socialmedailink{
-  border-color: red;
-  border-style: solid;
+  /* border-color: red; */
+  /* border-style: solid; */
   border-width: 1px;
-  display: flex;
+  margin-top: 40px;
+ margin-left: 664px;
+  width: 220px;
+  height: 50px;
+  align-content: center;
   flex-direction: row;
-  margin-top: 10px;
-  justify-content: space-between;
+}
+
+.socialmedailink i{
+  font-size: 28px;
+  color: #111;
+  background-color: white;
+  width: 41px;
+  height: 35px;
+  padding-top: 8px;
+  border-radius: 30px;
+  text-align: center;
+  margin-left: 18px;
+  font-weight: normal;
+  box-shadow: 0px 8px 11px -8px black;
 }
