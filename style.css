@@ -1,325 +1,347 @@
-
-.left_circle{
-   position: absolute;
-    width: 672px; 
-    height: 577px;
-    left: -29px;
-    top: -209px;
-    background: #B0EB70;
-    border-radius: 50%;
-}
-
-.right_circle{
-    position: absolute;
-    width: 166px; 
-    height: 166px;
-    top: 620px;
-    left: 1424px;
-    background: #B0EB70;
-    border-radius: 50%;
+* {
+  box-sizing: border-box;
 }
 
 body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* ===== Page wrapper holds the decorative circles ===== */
+.page_wrapper {
+  position: relative;
   overflow: hidden;
-  font-family: Arial;
-  position: relative;
+  min-height: 100vh;
 }
 
-.bg_class{
-    position: relative;
-    display: flex;
-}
-
-.sideimage{
-  /* border-width: 1px; */
-  flex: 1;
-  /* border-style: solid; */
-  /* border-color: rgb(192,192, 192); */
-  position: relative;
-}
-
-.sideimgs{
-  width: 569px;
-  margin-left: 10px;
-  margin-top: 5px;
-  border-radius: 43px;
-}
-
-.logininfo{
-      flex: 1;
-      /* background-color: brown; */
-      flex-direction: column;
-}
-
-.signupinfo{
-    flex: 1;
-    flex-direction: column;
-      font-family: "Nunito";
-    /* background-color: brown; */
-}
-
-.sigupuser{
- width: 343px;
- height: 48px; 
- border: 1px solid #ccc;
- border-radius: 8px;
- display: flex;
- padding: 0 15px;
- /* align-items:center; */
-  margin-bottom: 15px;
-}
-
-.sigupemail{
-   width: 343px;
- height: 48px; 
- border: 1px solid #ccc;
- border-radius: 8px;
- display: flex;
- padding: 0 15px;
- /* align-items:center; */
- gap: 10px;
-  margin-bottom: 15px;
-}
-
-.sigupuser i, .sigupemail i{
-  color: black;
-  align-content: center;
-  font-size: 22px;
-}
-
-.sigupuser input, .sigupemail input{
-   flex: 1;
-   border:none;
-   outline: none;
-   margin-left: 15px;
-   font-size: 18px;
-}
-
-.emailid{
-  color: black;
-  font-family: "Nunito";
-  font-weight: 800;
-  font-style: bold;
-  font-size: 14px;
-  margin-bottom: 5px;
-  margin-left: 5px;
-}
-
-.country{
-  display: flex;
-  align-items: center;
-  gap: 2px;
-}
-
-.country select{
-  border: none;
-  outline: none;
-  font-size: 16px;
-  background:transparent;
-}
-
-@media(max-width : 750px) {
-    
-       body{
-        overflow: auto;
-        /* height: auto; */
-      }
-
-  .bg_class{
-       flex-direction: column;
-       height: auto;
-    };
-}
-
-.textcontainer{
+.left_circle {
   position: absolute;
-  top: 450px;
-  left: 241px;
-  color: white;
-  font-size: 50px;
+  width: 35vw;
+  height: 35vw;
+  max-width: 672px;
+  max-height: 672px;
+  left: -3vw;
+  top: -12vw;
+  background: #B0EB70;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.right_circle {
+  position: absolute;
+  width: 9vw;
+  height: 9vw;
+  max-width: 166px;
+  max-height: 166px;
+  bottom: 5vh;
+  right: 4vw;
+  background: #B0EB70;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+/* ===== Main two-column layout ===== */
+.bg_class {
+  position: relative;
+  z-index: 1;
   display: flex;
-  font-family: "Nunito";
-  font-style: bold;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+/* ===== Left side: image + overlay text ===== */
+.sideimage {
+  flex: 1 1 320px;
+  max-width: 569px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.sideimgs {
+  width: 100%;
+  height: auto;
+  border-radius: 43px;
+  display: block;
+}
+
+.textcontainer {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  color: white;
+  font-family: "Nunito", sans-serif;
   font-weight: 700;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
 }
 
-.text1{
-  /* margin: 0; */
-  line-height: 0.8;
-  margin-top: 35px;
+.text1 {
+  font-size: clamp(2rem, 5vw, 3.125rem);
+  line-height: 0.9;
+  margin: 0;
 }
 
-
-.text2{
-  margin-left: -20px;
-  margin-top: 23px;
+.text2 {
   color: #B0EB70;
 }
 
-.text3{
-  margin-top: 170px;
-  margin-left: -220px;
-  font-size: 25px;
-  gap: 2px;
-  font-weight: bold;
+.text3 {
+  margin-top: 1rem;
+  font-size: clamp(1rem, 2.5vw, 1.5625rem);
   font-weight: 700;
 }
 
-.logindetailcontaier{
-  /* border-color: white;
-  border-style: solid;
-  border-width: 1px; */
-  width: 348px;
-  height: 305px;
-  position: fixed;
+/* ===== Right side: login form ===== */
+.logininfo {
+  flex: 1 1 320px;
+  max-width: 420px;
   display: flex;
   flex-direction: column;
-  margin-left: 226px;
-  font-family: "Nunito";
-  color: white;
-}
-
-.logindetailcontaier_signup{
-  /* border-color: white; */
-  /* border-style: solid; */
-  /* border-width: 1px; */
-  width: 374px;
-  height: 460px;
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  margin-left: 226px;
-  font-family: "Nunito";
-  color: white;
-}
-
-.login_title{
-  margin-left: 310px;
-  font-size: 36px;
-  font-family: "Nunito";
-  font-style: bold;
-  font-weight: 800;
-  margin-top: 140px;
-  color: black;
-}
-
-.forget_pass{
-  font-family: "Nunito";
-  font-weight: 600;
-  font-style: 600px;
-   align-content: center;
-   margin-left: 60px;
-   color: #000;
-}
-.signup_title{
-  margin-left: 290px;
-  font-size: 25px;
-  font-family: "Nunito";
-  font-style: bold;
-  font-weight: 800;
-  margin-top: 90px;
-  color: black;
-}
-
-.username, .password, .cnt_google{
-   width: 343px;
-   height: 48px; 
-   padding-left: 10px;
-   font-size: 16px;
-   border-width: 1px;
-   border-style: solid;
-   border-color: #D2D2D2;
-   border-radius: 10px;
-   color: black;
-   box-shadow: inset 1px 2px 3px rgba(0,0,0,0.05);
-   margin-bottom: 20px;
-   gap: 10px;
-}
-
-.login_btn{
-   width: 357px;
-   height: 48px;
-   border-width: 1px;
-   border-style: solid;
-   font-size: 16px;
-   border-color: #D2D2D2;
-   border-radius: 10px;
-  background-color: #154617;
-  color: #B0EB70;
-  border: none;
-  margin-bottom: 22px;
-}
-
-.signup_btn{
-     width: 374px;
-   height: 48px;
-   border-width: 1px;
-   border-style: solid;
-   font-size: 16px;
-   border-color: #D2D2D2;
-   border-radius: 10px;
-  background-color: #154617;
-  color: #B0EB70;
-  border: none;
-  font-weight: 700;
-   font-family: "Nunito";
-  margin-top: 12px;
-}
-
-.google_icon{
-   width: 20px;
-   height: 20px;
-  display: inline-flex;
-  margin-left: 50px;
-}
-
-.cnt_google{
-  display: inline-flex;
-  color: black;
-  font-style: bold; 
-  font-weight: 600;
-  font-size: 16px;
   align-items: center;
 }
 
-.username::placeholder, .password::placeholder{
-    font-size: 16px;
-    padding-left: 20px;
+.login_title {
+  font-size: 2.25rem;
+  font-family: "Nunito", sans-serif;
+  font-weight: 800;
+  color: black;
+  margin-bottom: 1.5rem;
+  align-self: flex-start;
 }
 
-.or_info{
-   flex: 1;
-   font-family: "Nunito";
-   align-items: center;
-   align-content: center;
-   font-size: 16px;
-   color: black;
-   margin-top: -5px;
-   text-align: center;
-   margin-bottom: 20px;
-}
-
-.sigup_div{
-  margin-top: 350px;
-  margin-left: 302px;
+.logindetailcontaier {
+  width: 100%;
+  max-width: 348px;
+  display: flex;
   flex-direction: column;
-  font-family: 'Nunito';
-  font-weight: 600;
-  font-style: bold;
-  font-size: 14px;
+  font-family: "Nunito", sans-serif;
 }
 
-.signup{
+.username,
+.password,
+.cnt_google {
+  width: 100%;
+  height: 48px;
+  padding-left: 15px;
+  font-size: 1rem;
+  border: 1px solid #D2D2D2;
+  border-radius: 10px;
+  color: black;
+  box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1.25rem;
+}
+
+.username::placeholder,
+.password::placeholder {
+  font-size: 1rem;
+}
+
+.login_btn {
+  width: 100%;
+  height: 48px;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: "Nunito", sans-serif;
+  border: none;
+  border-radius: 10px;
+  background-color: #154617;
+  color: #B0EB70;
+  margin-bottom: 1.375rem;
+  cursor: pointer;
+}
+
+.or_info {
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
+  color: black;
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+
+.cnt_google {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: black;
+  font-weight: 600;
+  font-size: 1rem;
+  background: white;
+  cursor: pointer;
+}
+
+.google_icon {
+  width: 20px;
+  height: 20px;
+}
+
+.sigup_div {
+  width: 100%;
+  max-width: 348px;
+  text-align: center;
+  margin-top: 1.5rem;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.forget_pass_log {
+  margin-bottom: 0.5rem;
+  color: black;
+}
+
+.forget_pass {
+  color: #000;
+  font-weight: 600;
+}
+
+.span_example,
+.span_sigin {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.span_example {
   color: #F99DAB;
 }
 
-.span_example,.signup{
-  text-decoration: underline solid;
+.span_sigin {
+  color: #154617;
+}
+
+/* ===== Right side: signup form ===== */
+.signupinfo {
+  flex: 1 1 320px;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signup_title {
+  font-size: 1.5625rem;
+  font-family: "Nunito", sans-serif;
+  font-weight: 800;
+  color: black;
+  margin-bottom: 1.25rem;
+  align-self: flex-start;
+}
+
+.logindetailcontaier_signup {
+  width: 100%;
+  max-width: 374px;
+  display: flex;
+  flex-direction: column;
+  font-family: "Nunito", sans-serif;
+}
+
+.sigupuser,
+.sigupemail {
+  width: 100%;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 0.9375rem;
+}
+
+.sigupuser i,
+.sigupemail i {
+  color: black;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.sigupuser i.fa-pen,
+.sigupuser i.fa-eye,
+.sigupuser i.fa-eye-slash {
   cursor: pointer;
 }
 
-.span_sigin{
-  text-decoration: underline solid;
+.sigupuser input,
+.sigupemail input {
+  flex: 1;
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 1.0625rem;
+  font-family: "Nunito", sans-serif;
+  background: transparent;
+  min-width: 0;
+}
+
+.emailid {
+  color: black;
+  font-family: "Nunito", sans-serif;
+  font-weight: 800;
+  font-size: 0.875rem;
+  margin-bottom: 0.3rem;
+  margin-left: 0.3rem;
+}
+
+.country {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.country select {
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  font-family: "Nunito", sans-serif;
+  background: transparent;
+}
+
+.signup_btn {
+  width: 100%;
+  height: 48px;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: "Nunito", sans-serif;
+  border: none;
+  border-radius: 10px;
+  background-color: #154617;
   color: #B0EB70;
+  margin-top: 0.75rem;
+  margin-bottom: 1rem;
   cursor: pointer;
+}
+
+/* ===== Responsive breakpoint ===== */
+@media (max-width: 750px) {
+  .left_circle,
+  .right_circle {
+    display: none;
+  }
+
+  .bg_class {
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .sideimage {
+    max-width: 100%;
+  }
+
+  .login_title,
+  .signup_title {
+    align-self: center;
+  }
+
+  .logininfo,
+  .signupinfo {
+    max-width: 100%;
+    width: 100%;
+  }
 }
