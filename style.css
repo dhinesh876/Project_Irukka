@@ -1,347 +1,385 @@
-* {
+*{
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Nunito', Arial, Helvetica, sans-serif;
 }
 
-/* ===== Page wrapper holds the decorative circles ===== */
-.page_wrapper {
+/* --- Page wrapper holds the decorative circles --- */
+.page_wrapper{
   position: relative;
   overflow: hidden;
   min-height: 100vh;
 }
 
-.left_circle {
-  position: absolute;
-  width: 35vw;
-  height: 35vw;
-  max-width: 672px;
-  max-height: 672px;
-  left: -3vw;
-  top: -12vw;
-  background: #B0EB70;
-  border-radius: 50%;
-  z-index: 0;
+.left_circle{
+   position: absolute;
+    width: 35vw;  /* Responsive sizing VM viewport width & old data -> 672px*/  
+    height: 35vw;  /* Responsive sizing VM viewport width & old data -> 577px*/
+    max-width: 672px;
+    max-height: 672px;
+    left: -3vw; /* Responsive sizing VM viewport width & old data -29px*/ 
+    top: -12vw; /* Responsive sizing VM viewport width & old data -209px*/ 
+    background: #B0EB70;
+    border-radius: 50%;
+    z-index: 0;
 }
 
-.right_circle {
-  position: absolute;
-  width: 9vw;
-  height: 9vw;
-  max-width: 166px;
-  max-height: 166px;
-  bottom: 5vh;
-  right: 4vw;
-  background: #B0EB70;
-  border-radius: 50%;
-  z-index: 0;
+.right_circle{
+    position: absolute;
+    width: 9vw;  /* Responsive sizing VM viewport width & old data -> 166px*/  
+    height: 9vw;  /* Responsive sizing VM viewport width & old data -> 166px*/  
+    max-width: 166px;
+    min-width: 166px;
+    bottom: -2vh;  /* Responsive sizing VM viewport Height */  
+    /* top: 620px; */
+    /* left: 1424px; */
+    right: -2vw;
+    background: #B0EB70;
+    border-radius: 50%;
+    z-index: 0;
 }
 
-/* ===== Main two-column layout ===== */
-.bg_class {
+
+/* --- Main two-Column layout --- */
+.bg_class{
+    position: relative;
+    display: flex;
+    z-index: 1;
+    flex-wrap: wrap;
+    min-height: 100vh; /* Responsive sizing VM viewport Height */
+    gap: 2rem; /* Responsive sizing rem - root em(element) */
+    padding: 2rem;
+  }
+
+
+  /* --- Left side: image + Overlay text --- */
+.sideimage{
+  flex: 1 1 320px; /* flex with grow - item grow fill extra space; shrink - item can shrink when space is not enough; basis - item starting size based user given*/
   position: relative;
-  z-index: 1;
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  gap: 2rem;
-  padding: 2rem;
-}
-
-/* ===== Left side: image + overlay text ===== */
-.sideimage {
-  flex: 1 1 320px;
   max-width: 569px;
-  position: relative;
-  display: flex;
   justify-content: center;
 }
 
-.sideimgs {
+.sideimgs{
   width: 100%;
   height: auto;
-  border-radius: 43px;
   display: block;
+  border-radius: 43px;
 }
 
-.textcontainer {
+.textcontainer{
   position: absolute;
   bottom: 1.5rem;
-  left: 1.5rem;
-  right: 1.5rem;
+  right: 1.0rem;
+  left: 13rem;
   color: white;
-  font-family: "Nunito", sans-serif;
+  font-size: 50px;
+  display: flex;
+  font-family: "Nunito";
+  font-style: bold;
   font-weight: 700;
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
 }
 
-.text1 {
-  font-size: clamp(2rem, 5vw, 3.125rem);
+.text1{
+  /* margin: 0; */
   line-height: 0.9;
-  margin: 0;
+  font-family: clamp(2rem, 5vw, 3.125rem); /*clamp is contain min, preferred, max*/
+  margin-top: 35px;
 }
 
-.text2 {
+.text2{
+  margin-left: -19px;
+  margin-top: 25px;
   color: #B0EB70;
 }
 
-.text3 {
-  margin-top: 1rem;
-  font-size: clamp(1rem, 2.5vw, 1.5625rem);
+.text3{
+  margin-top: 9rem;
+  margin-left: -13rem;
+  font-size: clamp(1rem, 2.5vw, 1.5635rem);
   font-weight: 700;
 }
 
-/* ===== Right side: login form ===== */
-.logininfo {
-  flex: 1 1 320px;
-  max-width: 420px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* ---Right Side: Login Form--- */
+
+.logininfo{
+      flex: 1 1 320px;
+      max-width: 420px;
+      display: flex;
+      margin-left: 20rem;
+      /* background-color: brown; */
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
 }
 
-.login_title {
+.login_title{
   font-size: 2.25rem;
   font-family: "Nunito", sans-serif;
+  font-style: bold;
   font-weight: 800;
-  color: black;
   margin-bottom: 1.5rem;
-  align-self: flex-start;
+  color: black;
+  align-self: center;
 }
 
-.logindetailcontaier {
+.logindetailcontaier{
   width: 100%;
   max-width: 348px;
+  /* height: 305px; */
+  /* position: fixed; */
   display: flex;
   flex-direction: column;
+  /* margin-left: 226px; */
   font-family: "Nunito", sans-serif;
+  color: white;
 }
 
-.username,
-.password,
-.cnt_google {
-  width: 100%;
-  height: 48px;
-  padding-left: 15px;
-  font-size: 1rem;
-  border: 1px solid #D2D2D2;
-  border-radius: 10px;
-  color: black;
-  box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.05);
-  margin-bottom: 1.25rem;
+.username, .password, .cnt_google{
+   width: 100%;
+   height: 48px; 
+   background-color: #F5F5F5;
+   padding-left: 15px;
+   font-size: 1rem;
+   border: 1px solid #D2D2D2;
+   border-radius: 10px;
+   color: black;
+   box-shadow: inset 1px 2px 3px rgba(0,0,0,0.05);
+   margin-bottom: 1.25rem;
 }
 
-.username::placeholder,
-.password::placeholder {
-  font-size: 1rem;
+.username::placeholder, .password::placeholder{
+    font-size: 1rem;
 }
 
-.login_btn {
-  width: 100%;
-  height: 48px;
-  font-size: 1rem;
-  font-weight: 700;
-  font-family: "Nunito", sans-serif;
-  border: none;
-  border-radius: 10px;
-  background-color: #154617;
-  color: #B0EB70;
-  margin-bottom: 1.375rem;
-  cursor: pointer;
+.login_btn{
+   width: 100%;
+   height: 48px;
+   font-size: 1rem;
+   font-weight: 700;
+   font-family: "Nunito", sans-serif;
+   border: none;
+   border-radius: 10px;
+   background-color: #154617;
+   color: #B0EB70;
+   cursor: pointer;
+   margin-bottom: 1.375rem;
 }
 
-.or_info {
-  font-family: "Nunito", sans-serif;
-  font-size: 1rem;
-  color: black;
-  text-align: center;
-  margin-bottom: 1.25rem;
+.or_info{
+   font-family: "Nunito", sans-serif;
+   font-size: 1rem;
+   color: black;
+   text-align: center;
+   margin-bottom: 1.25rem;
 }
 
-.cnt_google {
+.cnt_google{
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
   color: black;
-  font-weight: 600;
+  font-style: bold; 
+  font-weight: 700;
   font-size: 1rem;
   background: white;
   cursor: pointer;
 }
 
-.google_icon {
-  width: 20px;
-  height: 20px;
+.google_icon{
+   width: 20px;
+   height: 20px;
 }
 
-.sigup_div {
+.sigup_div{
   width: 100%;
   max-width: 348px;
   text-align: center;
   margin-top: 1.5rem;
-  font-family: "Nunito", sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-weight: 600;
+  font-style: bold;
   font-size: 0.875rem;
 }
 
-.forget_pass_log {
+.forget_pass_log{
   margin-bottom: 0.5rem;
   color: black;
 }
 
-.forget_pass {
-  color: #000;
+.forget_pass{
+  color: #F99DAB;
   font-weight: 600;
 }
 
-.span_example,
-.span_sigin {
+.span_example,.forget_pass{
   text-decoration: underline;
   cursor: pointer;
 }
 
-.span_example {
-  color: #F99DAB;
-}
-
-.span_sigin {
-  color: #154617;
-}
-
-/* ===== Right side: signup form ===== */
-.signupinfo {
-  flex: 1 1 320px;
-  max-width: 420px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.signup_title {
-  font-size: 1.5625rem;
-  font-family: "Nunito", sans-serif;
-  font-weight: 800;
-  color: black;
-  margin-bottom: 1.25rem;
-  align-self: flex-start;
-}
-
-.logindetailcontaier_signup {
-  width: 100%;
-  max-width: 374px;
-  display: flex;
-  flex-direction: column;
-  font-family: "Nunito", sans-serif;
-}
-
-.sigupuser,
-.sigupemail {
-  width: 100%;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 0 15px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  margin-bottom: 0.9375rem;
-}
-
-.sigupuser i,
-.sigupemail i {
-  color: black;
-  font-size: 1.1rem;
-  flex-shrink: 0;
-}
-
-.sigupuser i.fa-pen,
-.sigupuser i.fa-eye,
-.sigupuser i.fa-eye-slash {
+.span_sigin{
+  text-decoration: underline;
+  color: #B0EB70;
   cursor: pointer;
 }
 
-.sigupuser input,
-.sigupemail input {
-  flex: 1;
-  width: 100%;
-  border: none;
-  outline: none;
-  font-size: 1.0625rem;
-  font-family: "Nunito", sans-serif;
-  background: transparent;
-  min-width: 0;
+
+/* --- Right side: signup form --- */
+.signupinfo{
+    flex: 1;
+    flex-direction: column;
+      font-family: "Nunito";
+    /* background-color: brown; */
 }
 
-.emailid {
+.sigupuser{
+ width: 343px;
+ height: 48px; 
+ border: 1px solid #ccc;
+ border-radius: 8px;
+ display: flex;
+ padding: 0 15px;
+ /* align-items:center; */
+  margin-bottom: 15px;
+}
+
+.sigupemail{
+   width: 343px;
+ height: 48px; 
+ border: 1px solid #ccc;
+ border-radius: 8px;
+ display: flex;
+ padding: 0 15px;
+ /* align-items:center; */
+ gap: 10px;
+  margin-bottom: 15px;
+}
+
+.sigupuser i, .sigupemail i{
   color: black;
-  font-family: "Nunito", sans-serif;
-  font-weight: 800;
-  font-size: 0.875rem;
-  margin-bottom: 0.3rem;
-  margin-left: 0.3rem;
+  align-content: center;
+  font-size: 22px;
 }
 
-.country {
+.sigupuser input, .sigupemail input{
+   flex: 1;
+   border:none;
+   outline: none;
+   margin-left: 15px;
+   font-size: 18px;
+}
+
+.emailid{
+  color: black;
+  font-family: "Nunito";
+  font-weight: 800;
+  font-style: bold;
+  font-size: 14px;
+  margin-bottom: 5px;
+  margin-left: 5px;
+}
+
+.country{
   display: flex;
   align-items: center;
   gap: 2px;
-  flex-shrink: 0;
 }
 
-.country select {
+.country select{
   border: none;
   outline: none;
-  font-size: 1rem;
-  font-family: "Nunito", sans-serif;
-  background: transparent;
+  font-size: 16px;
+  background:transparent;
 }
 
-.signup_btn {
-  width: 100%;
-  height: 48px;
-  font-size: 1rem;
-  font-weight: 700;
-  font-family: "Nunito", sans-serif;
-  border: none;
-  border-radius: 10px;
+.logindetailcontaier_signup{
+  /* border-color: white; */
+  /* border-style: solid; */
+  /* border-width: 1px; */
+  width: 374px;
+  height: 460px;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  margin-left: 226px;
+  font-family: "Nunito";
+  color: white;
+}
+
+/* .forget_pass{
+  font-family: "Nunito";
+  font-weight: 600;
+  font-style:bold;
+   align-content: center;
+   margin-left: 60px;
+   color: #000;
+} */
+
+.signup_title{
+  margin-left: 290px;
+  font-size: 25px;
+  font-family: "Nunito";
+  font-style: bold;
+  font-weight: 800;
+  margin-top: 90px;
+  color: black;
+}
+
+.signup_btn{
+     width: 374px;
+   height: 48px;
+   border-width: 1px;
+   border-style: solid;
+   font-size: 16px;
+   border-color: #D2D2D2;
+   border-radius: 10px;
   background-color: #154617;
   color: #B0EB70;
-  margin-top: 0.75rem;
-  margin-bottom: 1rem;
-  cursor: pointer;
+  border: none;
+  font-weight: 700;
+   font-family: "Nunito";
+  margin-top: 12px;
 }
 
-/* ===== Responsive breakpoint ===== */
-@media (max-width: 750px) {
-  .left_circle,
-  .right_circle {
+
+/* ---Responsive Design--- */
+@media(max-width : 750px) {
+  .left_circle, .right_circle{
     display: none;
   }
 
-  .bg_class {
+  .bg_class{
     flex-direction: column;
     padding: 1.5rem;
     gap: 1.5rem;
   }
 
-  .sideimage {
+  .sideimage{
     max-width: 100%;
   }
 
-  .login_title,
-  .signup_title {
+  .login_title{
     align-self: center;
   }
 
-  .logininfo,
-  .signupinfo {
-    max-width: 100%;
-    width: 100%;
+  .textcontainer{
+    left: 11rem;
   }
+
+  .text3{
+      margin-left: -10rem;
+  }
+
+ .logininfo{
+  max-width: 100%;
+  width: 100%;
+  margin-left: 0;
+ }
+
 }
