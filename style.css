@@ -5,6 +5,7 @@
 body {
   margin: 0;
   font-family: 'Nunito', Arial, Helvetica, sans-serif;
+  overflow: hidden;
 }
 
 /* --- Page wrapper holds the decorative circles --- */
@@ -51,7 +52,7 @@ body {
     flex-wrap: wrap;
     min-height: 100vh; /* Responsive sizing VM viewport Height */
     gap: 2rem; /* Responsive sizing rem - root em(element) */
-    padding: 2rem;
+    padding: 1rem;
   }
 
 
@@ -101,7 +102,7 @@ body {
 .text3{
   margin-top: 9rem;
   margin-left: -13rem;
-  font-size: clamp(1rem, 2.5vw, 1.5635rem);
+  font-size: clamp(1rem, 3.5vw, 1.5635rem);
   font-weight: 700;
 }
 
@@ -350,6 +351,12 @@ body {
 
 /* ---Responsive Design--- */
 @media(max-width : 750px) {
+
+  body
+  {
+    overflow:auto;
+  }
+
   .left_circle, .right_circle{
     display: none;
   }
@@ -366,14 +373,6 @@ body {
 
   .login_title{
     align-self: center;
-  }
-
-  .textcontainer{
-    left: 11rem;
-  }
-
-  .text3{
-      margin-left: -10rem;
   }
 
  .logininfo{
