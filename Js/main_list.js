@@ -18,7 +18,12 @@ const CONFIG = {
 async function fetchShops() {
       shophtmllist.innerHTML = `<p class="state_msg">Loading shops...</p>`;
       try{
-        const res = await fetch(CONFIG.ENDPOINTS.shoplist());
+        const res = await fetch(CONFIG.ENDPOINTS.shoplist(), 
+        {
+    headers: {
+      "ngrok-skip-browser-warning": "true"
+    }
+  });
 
         if(!res.ok) throw new error ('Server Not Responded');
 
@@ -122,8 +127,6 @@ shophtmllist.addEventListener("click", async(e) => {
 
     if(!button) return;
 
-    console.log(button);
-
     const shopcard = button.closest(".shop_container");
     const shopId = shopcard.dataset.shopid;
     const action = button.dataset.action;
@@ -187,7 +190,10 @@ async function updateshopdata(shopendpoint,body, method) {
     const res = await fetch(shopendpoint, {
     
         method,
-        headers: {"Content-Type" : "application/json"},
+        headers: {
+            "ngrok-skip-browser-warning": "true",
+            "Content-Type" : "application/json",
+        },
         body : JSON.stringify(body),
     });
 
