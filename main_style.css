@@ -179,27 +179,27 @@ body {
  }
 
  .shop_grid{
-  display: grid;
-  grid-template-columns: repeat(5 ,1fr);
+  display: flex;
+  /* grid-template-columns: repeat(2 ,1fr); */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
  }
 
- @media(max-width : 750px) {
-       .shop_grid{
-           display: grid;
-           grid-template-columns: repeat(3 ,1fr);
-           row-gap: 30px;
-      }
- }
+@media (max-width: 750px) {
+  .shop_grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+    gap: 30px 16px;
+  }
+}
 
  .shop_container{
   padding-bottom: 5px;
   padding-left: 25px;
   padding-right: 25px;
   display: flex;
-  flex-direction: column;
-  /* border-color: red;
+  flex-direction: row;
+  border-color: red;
   border-width: 3px;
-  border-style: solid; */
+  border-style: solid;
  }
 
  .shop_img_container{
@@ -221,25 +221,59 @@ body {
   border-radius: 39px;
  }
 
- .shop_name,.shop_update, .is_close{
+ .shop_name{
   font-family: "Nunito";
   font-weight: 900;
   font-style: bold;
   font-size: 16px;
-  /* margin-left: 40px;  */
+  margin-left: 40px; 
+ /* justify-content: center;  */
+  /* text-align: center;  */
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.shop_update{
+  font-family: "Nunito";
+  font-weight: 900;
+  font-style: bold;
+  font-size: 16px;
+  margin-left: 50px; 
+ justify-content: center; 
+  text-align: center; 
+}
+
+.is_close, .is_reject, .is_approve {
+  width: 8rem;
+  height: 2rem;
+  background-color: red;
+  color: white;
+  font-family: "Nunito", sans-serif;
+  font-weight: 900;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+.btn_list{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+}
+
+.is_approve{
+  background-color: lightgreen;
 }
 
  .shop_update
 {
   color:#B0EB70;
 }
-
-.is_close{
- color: red;
-}
-
 
 .textcontainer{
   position: absolute;
