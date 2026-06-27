@@ -4,7 +4,7 @@ const shophtmllist = document.getElementById("shoplist_grid");
 // Config to backend
 
 const CONFIG = {
-    BASE_URL : "https://chef-legume-corsage.ngrok-free.dev/api",
+    BASE_URL : "https://project-irukka-admin.onrender.com/api",
     ENDPOINTS : {
         shoplist : () => `${CONFIG.BASE_URL}/getdata`,
         adminapprove : () => `${CONFIG.BASE_URL}/adminaprove`,
