@@ -15,30 +15,60 @@ const CONFIG = {
 
 // load shop from backend
 
+// async function fetchShops() {
+//       shophtmllist.innerHTML = `<p class="state_msg">Loading shops...</p>`;
+//       try{
+//         const res = await fetch(CONFIG.ENDPOINTS.shoplist(), 
+//         {
+//     headers: {
+//       "ngrok-skip-browser-warning": "true"
+//     }
+//   });
+
+//         if(!res.ok) throw new error ('Server Not Responded');
+
+//         const data = await res.json();
+
+//         console.log("Raw response from /getdata:", data); // check your browser console to see the real shape
+
+//         const shops = extractShopsArray(data);
+//         rendershop(shops);
+//       }
+//       catch(err)
+//       {
+//         console.log(err);
+//         shophtmllist.innerHTML = `<p class="state_msg state_error">Couldn't load shops. Is the backend running at ${CONFIG.BASE_URL}?</p>`;
+//       }
+// }
+
 async function fetchShops() {
-      shophtmllist.innerHTML = `<p class="state_msg">Loading shops...</p>`;
-      try{
-        const res = await fetch(CONFIG.ENDPOINTS.shoplist(), 
-        {
-    headers: {
-      "ngrok-skip-browser-warning": "true"
-    }
-  });
+  shophtmllist.innerHTML = `<p class="state_msg">Loading shops...</p>`;
+  try {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 30000); // 15s timeout
 
-        if(!res.ok) throw new error ('Server Not Responded');
+    const res = await fetch(CONFIG.ENDPOINTS.shoplist(), {
+      headers: { "ngrok-skip-browser-warning": "true" },
+      signal: controller.signal
+    });
 
-        const data = await res.json();
+    clearTimeout(timeoutId);
 
-        console.log("Raw response from /getdata:", data); // check your browser console to see the real shape
+    if (!res.ok) throw new Error('Server Not Responded');
 
-        const shops = extractShopsArray(data);
-        rendershop(shops);
-      }
-      catch(err)
-      {
-        console.log(err);
-        shophtmllist.innerHTML = `<p class="state_msg state_error">Couldn't load shops. Is the backend running at ${CONFIG.BASE_URL}?</p>`;
-      }
+    const data = await res.json();
+    console.log("Raw response from /getdata:", data);
+
+    const shops = extractShopsArray(data);
+    rendershop(shops);
+  }
+  catch (err) {
+    console.log(err);
+    const msg = err.name === 'AbortError'
+      ? `Server is taking too long to respond (cold start?). Try again in a moment.`
+      : `Couldn't load shops. Is the backend running at ${CONFIG.BASE_URL}?`;
+    shophtmllist.innerHTML = `<p class="state_msg state_error">${msg}</p>`;
+  }
 }
  
 // Handles common API response shapes: a plain array, or an array
