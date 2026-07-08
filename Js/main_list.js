@@ -5,7 +5,7 @@ const shophtmllist = document.getElementById("shoplist_grid");
 
 
 const CONFIG = {
-    BASE_URL:"http://localhost:3000/api", //"https://project-irukka-admin.onrender.com/api",  
+    BASE_URL: "https://project-irukka-admin.onrender.com/api",  
     ENDPOINTS : {
         shoplist : () => `${CONFIG.BASE_URL}/getdata`,
         adminapprove : () => `${CONFIG.BASE_URL}/adminaprove`,
