@@ -3,13 +3,15 @@ const shophtmllist = document.getElementById("shoplist_grid");
 
 // Config to backend
 
+
 const CONFIG = {
-    BASE_URL : "https://project-irukka-admin.onrender.com/api",
+    BASE_URL:"http://localhost:3000/api", //"https://project-irukka-admin.onrender.com/api",  
     ENDPOINTS : {
         shoplist : () => `${CONFIG.BASE_URL}/getdata`,
         adminapprove : () => `${CONFIG.BASE_URL}/adminaprove`,
         deletecomment : () => `${CONFIG.BASE_URL}/deletecomment`,
         shopclose : () => `${CONFIG.BASE_URL}/shopclose`,
+        musttrymenu : () => `${CONFIG.BASE_URL}/shopmenuupdate`
     }
 }
 
@@ -101,6 +103,10 @@ function shopcardhtml(shop){
     const reviews = shop.reviews && shop.reviews.length ? shop.reviews.map((r) => 
     reviewItemhtml(shop.ownerId, r)).join("") : `<p class="state_msg state_error">No Review yet</p>`;
 
+    const shopmenu = shop.shopmenu && shop.shopmenu.length ? shop.shopmenu.map((sm) => 
+    shopmenuItemhtml(shop.ownerId, sm)).join("") : `<p class="state_msg state_error">No shopmenu given by shop owner</p>`;
+
+
     const htmlshopdata = `
                <div class="shop_container" data-shopid="${shop.ownerId}">
 
@@ -122,6 +128,11 @@ function shopcardhtml(shop){
                     <div class="review_header">Reviews</div>
                     <div class="Review_name">
                     ${reviews}
+                    </div>
+
+                    <div class="review_header">Shop Menu</div>
+                    <div class="Review_name">
+                    ${shopmenu}
                     </div>
 
    <div class="btn_list">
@@ -149,6 +160,17 @@ function reviewItemhtml(shopId, review)
     `;
 }
 
+//assign shop menu html page
+function shopmenuItemhtml(shopId, shopmenulist )
+{
+    return `
+        <div class="menu_item review_item" data-shopmenu-id="${shopmenulist.menu_id}">
+                            <div>${shopmenulist.menu}</div>   
+                         <button data-action="musttry-dish" style = "${shopmenulist.must_try ? "background:green; color:white; border: 0;" : ""}">${shopmenulist.must_try ? "Already Added" : "Must Try" }</button>
+                        </div>
+    `;
+}
+
 
 //send Response to backend 
 shophtmllist.addEventListener("click", async(e) => {
@@ -160,8 +182,6 @@ shophtmllist.addEventListener("click", async(e) => {
     const shopcard = button.closest(".shop_container");
     const shopId = shopcard.dataset.shopid;
     const action = button.dataset.action;
-
-    console.log(shopId," ",action);
 
     try {
         
@@ -199,6 +219,29 @@ shophtmllist.addEventListener("click", async(e) => {
 
             reviewitem.remove(); // update UI immediately, no full refetch needed
         }
+
+        else if(action === "musttry-dish")
+        {
+            const menuitem = button.closest(".menu_item");
+
+            const menuId = menuitem.dataset.shopmenuId;
+
+            let shopmenustatus = menuitem.textContent.split("\n")[2].trim();
+
+            console.log(shopmenustatus);
+
+            if(shopmenustatus === "Already Added") {
+              alert("Dish Already Added.");
+              return;
+            }
+
+    await updateshopdata(CONFIG.ENDPOINTS.musttrymenu(), {
+  "shop_id" : shopId,
+  "menu_id" : menuId   
+}, "PUT");
+
+        }
+
     else{
         throw new Error("API MISSING");
     }
@@ -214,8 +257,6 @@ shophtmllist.addEventListener("click", async(e) => {
 
 
 async function updateshopdata(shopendpoint,body, method) {
-
-    console.log("sdsd", method, " ", body);
 
     const res = await fetch(shopendpoint, {
     
